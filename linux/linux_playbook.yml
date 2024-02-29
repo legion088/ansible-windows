@@ -1,0 +1,11 @@
+- name: Working with Linux
+  hosts: centos
+  tasks:
+    - name: Create directory
+      ansible.builtin.file:
+        path: /home/iroot/inventory
+        state: directory
+    - name: Copy inventory files
+      copy:
+        src: /etc/ansible/inventory/
+        dest: /home/iroot/inventory
