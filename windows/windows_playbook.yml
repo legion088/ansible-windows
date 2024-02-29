@@ -1,0 +1,20 @@
+- name: Working with Windows
+  hosts: windows
+  tasks:
+    - name: Create dir
+      win_file:
+        path: C:\ansible
+        state: directory
+    - name: Create file
+      win_file:
+        path: C:\ansible\some.txt
+        state: touch
+    - name: Open port
+      win_firewall_rule:
+        name: port 22
+        localport: 22
+        action: allow
+        direction: in
+        protocol: tcp
+        state: present
+        enabled: yes  	
